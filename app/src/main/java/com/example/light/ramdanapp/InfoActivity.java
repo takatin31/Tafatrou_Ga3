@@ -114,6 +114,10 @@ public class InfoActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(InfoActivity.this, MainJAm3iyaActivity.class);
                     intent.putExtra("email", mail);
+                    intent.putExtra("name", sname);
+                    intent.putExtra("phone", sphone);
+                    intent.putExtra("number", snumber);
+                    intent.putExtra("ccp", sccp);
                     startActivity(intent);
                     finish();
                 }

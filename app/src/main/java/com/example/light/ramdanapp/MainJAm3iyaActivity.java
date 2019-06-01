@@ -19,6 +19,7 @@ public class MainJAm3iyaActivity extends AppCompatActivity {
     private Button changeLocationBtn;
     private Button changeNeedsBtn;
     private FloatingActionButton close;
+    String name, phone, number, ccp;
 
 
 
@@ -29,6 +30,10 @@ public class MainJAm3iyaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_jam3iya);
         final String mail = (String) getIntent().getSerializableExtra("email");
         final String previous = (String) getIntent().getSerializableExtra("previous");
+        name = (String) getIntent().getSerializableExtra("name");
+        phone = (String) getIntent().getSerializableExtra("phone");
+        number = (String) getIntent().getSerializableExtra("number");
+        ccp = (String) getIntent().getSerializableExtra("ccp");
 
 
         if (previous != null && previous.equals("map")){
@@ -65,6 +70,10 @@ public class MainJAm3iyaActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainJAm3iyaActivity.this, MapActivity.class);
                 intent.putExtra("previous", "change");
                 intent.putExtra("email", mail);
+                intent.putExtra("name", name);
+                intent.putExtra("phone", phone);
+                intent.putExtra("number", number);
+                intent.putExtra("ccp", ccp);
                 startActivity(intent);
                 finish();
             }

@@ -15,8 +15,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login2Activity extends AppCompatActivity {
 
@@ -94,12 +97,47 @@ public class Login2Activity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            Intent intent = new Intent(Login2Activity.this, MainJAm3iyaActivity.class);
+            final Intent intent = new Intent(Login2Activity.this, MainJAm3iyaActivity.class);
             intent.putExtra("email", currentUser.getEmail());
-            startActivity(intent);
-            finish();
+
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference();
+
+            DatabaseReference infoRef = myRef.child("Jam3iyates");
+            String mail2 = currentUser.getEmail().replace('.', ',');
+            final DatabaseReference jamMailRef = infoRef.child(mail2);
+
+
+
+            jamMailRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String phone = dataSnapshot.child("phone").getValue(String.class);
+                    String number = dataSnapshot.child("number").getValue(String.class);
+                    String ccp = dataSnapshot.child("ccp").getValue(String.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("phone", phone);
+                    intent.putExtra("number", number);
+                    intent.putExtra("ccp", ccp);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+
         }
 
     }

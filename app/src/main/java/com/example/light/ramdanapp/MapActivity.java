@@ -111,7 +111,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                     if (selected){
                         Toast.makeText(MapActivity.this, "تم اختيار الموقع بنجاح", Toast.LENGTH_SHORT).show();
                         Intent intent;
-
+                        String position = String.valueOf(selectedPos.latitude)+" "+String.valueOf(selectedPos.longitude);
                         if (previous.equals("info")){
                             intent = new Intent(MapActivity.this, InfoActivity.class);
                             intent.putExtra("previous", "map");
@@ -120,14 +120,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                             intent.putExtra("phone", phone);
                             intent.putExtra("number", number);
                             intent.putExtra("ccp", ccp);
-
-                            String position = String.valueOf(selectedPos.latitude)+" "+String.valueOf(selectedPos.longitude);
                             //position = position.replace('.', ',');
                             intent.putExtra("position", position);
 
                         }else{
                             intent = new Intent(MapActivity.this, MainJAm3iyaActivity.class);
+                            intent.putExtra("position", position);
                             intent.putExtra("previous", "map");
+                            intent.putExtra("email", mail);
                         }
 
                         startActivity(intent);
