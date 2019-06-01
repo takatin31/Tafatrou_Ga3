@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RamdanApp</string>
+    <string name="title_activity_map">Map</string>
+
+    <string-array name="array_name">
+        <item>كغ</item>
+        <item>لتر</item>
+        <item>علب</item>
+        <item>كيس</item>
+        <item>قارورة</item>
+    </string-array>
+</resources>

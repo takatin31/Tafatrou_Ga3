@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "150289775607",
+    "firebase_url": "https://tefatrou-ga3.firebaseio.com",
+    "project_id": "tefatrou-ga3",
+    "storage_bucket": "tefatrou-ga3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150289775607:android:b7591b5dc52ae0ae",
+        "android_client_info": {
+          "package_name": "com.example.light.ramdanapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150289775607-2ms33jnghbkvad9mendukfsc4r747lns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.light.ramdanapp",
+            "certificate_hash": "abe72f662c298a3c6b10000b7365e62a7af95848"
+          }
+        },
+        {
+          "client_id": "150289775607-nisup2vfp8i0rb3mbklhn9lbqia6o0lq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVlwJ5kpbLooHGtSrDTOiZQcuWsTQCEQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150289775607-nisup2vfp8i0rb3mbklhn9lbqia6o0lq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
