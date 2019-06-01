@@ -79,7 +79,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 DatabaseReference productsRef = jamMailRef.child("products");
                                 DatabaseReference productRef = productsRef.child(productName);
 
-                                productRef.removeValue();
+                                if (!productName.equals(""))
+                                    productRef.removeValue();
                                 notifyDataSetChanged();
                                 break;
                             case R.id.modify:
